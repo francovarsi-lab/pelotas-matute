@@ -1,0 +1,52 @@
+:root { --bg:#e9e9ec; --ink:#1b1b1f; --panel:#fff; --line:#d9d9de; --acc:#1d4ed8; }
+* { box-sizing:border-box; }
+html, body { height:100%; margin:0; }
+body { font:15px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); overflow:hidden; }
+
+/* Escritorio primero: visor grande con el panel de control a la derecha */
+#app { height:100dvh; display:flex; flex-direction:row; }
+#viewer { position:relative; flex:1; min-width:0; touch-action:none;
+  background:radial-gradient(circle at 50% 40%, #f6f6f8, var(--bg) 70%); }
+#gl { width:100%; height:100%; display:block; outline:none; }
+h1 { position:absolute; left:20px; top:16px; margin:0; font-size:1.25rem; font-weight:700; letter-spacing:.2px; pointer-events:none; }
+
+#sheet { width:360px; height:100%; display:flex; flex-direction:column; background:var(--panel);
+  box-shadow:-1px 0 0 var(--line); overflow:hidden; }
+#handle { display:none; }
+.grip { width:36px; height:4px; border-radius:2px; background:#c4c4cc; }
+#controls { overflow:auto; padding:0 16px 24px; flex:1; }
+
+h2 { margin:18px 0 8px; font-size:.78rem; text-transform:uppercase; letter-spacing:.6px; color:#6b6b76; }
+.hint { margin:4px 0 8px; color:#6b6b76; font-size:.85rem; }
+.row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+label { display:block; margin:8px 0; }
+label.inline { display:flex; align-items:center; gap:10px; }
+label output { float:right; color:#6b6b76; }
+input[type=range] { width:100%; margin:6px 0 0; accent-color:var(--acc); }
+input[type=color] { width:44px; height:36px; padding:0; border:1px solid var(--line); border-radius:8px; background:none; }
+
+button, .btn { font:inherit; }
+.btn, .chip, .tpl, .stepper button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:10px;
+  padding:8px 12px; cursor:pointer; min-height:40px; display:inline-flex; align-items:center; }
+.btn:disabled { opacity:.45; cursor:default; }
+.tpl[aria-pressed=true] { border-color:var(--acc); background:#eef3ff; color:var(--acc); font-weight:600; }
+.chip { width:40px; padding:0; justify-content:center; font-size:.75rem; font-weight:600; text-shadow:0 0 3px #fff8; }
+.chip[aria-pressed=true] { outline:3px solid var(--acc); outline-offset:1px; }
+.sw { width:32px; height:32px; border-radius:50%; border:1px solid var(--line); cursor:pointer; padding:0; }
+.stepper { display:flex; align-items:center; gap:10px; margin:10px 0; }
+.stepper output { min-width:1.5em; text-align:center; font-weight:700; }
+.stepper button { width:40px; padding:0; justify-content:center; font-size:1.2rem; }
+#flatbox canvas { width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--line); aspect-ratio:2/1; }
+
+/* Celular: el panel pasa a bottom sheet colapsable y el visor queda arriba */
+@media (max-width:819px) {
+  #app { flex-direction:column; }
+  #viewer { min-width:auto; min-height:0; }
+  h1 { left:16px; top:12px; font-size:1.15rem; }
+  #sheet { width:auto; height:48px; border-radius:16px 16px 0 0; box-shadow:0 -4px 20px rgba(0,0,0,.12);
+    transition:height .25s ease; padding-bottom:env(safe-area-inset-bottom); }
+  #sheet.open { height:55dvh; }
+  #handle { flex:none; height:48px; border:0; background:none; font:inherit; font-weight:600; cursor:pointer;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; color:var(--ink); }
+}
+[hidden] { display:none !important; }
