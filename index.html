@@ -19,8 +19,18 @@
   <aside id="sheet" class="open">
     <button id="handle" aria-expanded="true"><span class="grip"></span>Personalizar</button>
     <div id="controls">
-      <h2>Textura plana</h2>
+      <h2>Desplegable</h2>
+      <div class="row">
+        <select id="viewKind" aria-label="Vista">
+          <option value="cont">Continuo</option><option value="gajos">Gajos</option><option value="rect">Rectangular</option>
+        </select>
+        <select id="viewN" aria-label="Cantidad de gajos de la vista" hidden>
+          <option>6</option><option selected>8</option><option>12</option>
+        </select>
+        <label class="inline"><input id="grid" type="checkbox"> Cuadrícula</label>
+      </div>
       <div id="flatbox"></div>
+      <p class="hint">Arrastrá la imagen acá. Cuadrado = tamaño, círculo = rotación.</p>
 
       <h2>Plantilla</h2>
       <div id="templates" class="row"></div>

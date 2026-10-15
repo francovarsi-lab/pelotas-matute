@@ -23,6 +23,7 @@ Subí la carpeta tal cual (no hay build):
 ## Estructura
 
 - `js/templates.js` — plantillas y Voronoi esférico por texel (textura 2048x1024).
+- `js/planeview.js` — desplegable: proyecciones sinusoidal (continua / por gajos) y rectangular por pixel.
 - `js/decals.js` — proyección gnomónica de las imágenes y su distribución.
 - `vendor/` — three.module.js, OrbitControls.js, RoomEnvironment.js y licencia.
 - `js/ui.js` — helpers de DOM. `js/main.js` — escena Three.js y conexión de todo.

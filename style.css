@@ -10,7 +10,7 @@ body { font:15px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--
 #gl { width:100%; height:100%; display:block; outline:none; }
 h1 { position:absolute; left:20px; top:16px; margin:0; font-size:1.25rem; font-weight:700; letter-spacing:.2px; pointer-events:none; }
 
-#sheet { width:360px; height:100%; display:flex; flex-direction:column; background:var(--panel);
+#sheet { width:420px; height:100%; display:flex; flex-direction:column; background:var(--panel);
   box-shadow:-1px 0 0 var(--line); overflow:hidden; }
 #handle { display:none; }
 .grip { width:36px; height:4px; border-radius:2px; background:#c4c4cc; }
@@ -50,3 +50,5 @@ button, .btn { font:inherit; }
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; color:var(--ink); }
 }
 [hidden] { display:none !important; }
+#flatbox canvas { cursor:crosshair; touch-action:none; }
+select { font:inherit; padding:8px; border:1px solid var(--line); border-radius:10px; background:#fff; min-height:40px; }
